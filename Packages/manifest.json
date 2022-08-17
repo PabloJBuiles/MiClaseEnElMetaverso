@@ -12,7 +12,8 @@
     "io.extendreality.tilia.input.unityinputmanager": "2.0.4",
     "io.extendreality.tilia.interactions.pointerinteractors.unity": "2.1.21",
     "io.extendreality.tilia.interactions.spatialbuttons.unity": "2.2.0",
-
+    "io.extendreality.tilia.mutators.collisionignorer.unity": "2.0.4",
+    "io.extendreality.tilia.interactions.snapzone.unity": "2.1.17",
     "com.unity.collab-proxy": "1.14.18",
     "com.unity.ide.rider": "1.2.1",
     "com.unity.ide.visualstudio": "2.0.15",
