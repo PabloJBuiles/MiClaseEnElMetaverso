@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public enum ToolUtility
@@ -17,9 +18,13 @@ public class ToolBall : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        initialPosition = gameObject.GetComponent<Transform>().position;
+
     }
 
+    public Vector3 initialPosition { get; set; }
+
+    
     // Update is called once per frame
     void Update()
     {
@@ -33,21 +38,27 @@ public class ToolBall : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.gameObject);
         if (other.CompareTag("UpBasket"))
         {
             cdBasketUp = 0;
         }
 
-        if (other.CompareTag("DownBasket") && cdBasketUp > 0.2f)
+        if (other.CompareTag("DownBasket") && cdBasketUp < 0.2f)
         {
-            GameObject.Find("GameManager").GetComponent<ToolBallsManager>().BasketTool(_toolUtility);
+            Debug.Log("Pelota encestada");
+            GameObject.Find("GameManager").GetComponent<ToolBallsManager>().BasketTool(_toolUtility, gameObject.GetComponent<ToolBall>());
         }
     }
 
-    private static void ToolReturn()
+    public void ToolReturn()
     {
         
-            //TODO Se destrulle la herramienta (visualmente) y vuelve a su posicion inicial en el escaparate
-        
+            //TODO Se destrulle la herramienta (visualmente) 
+            this.transform.position = initialPosition;
+            Rigidbody rigidbody = gameObject.GetComponent<Rigidbody>();
+            rigidbody.velocity = Vector3.zero;
+            rigidbody.angularVelocity = Vector3.zero;
+
     }
 }

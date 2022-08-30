@@ -195,6 +195,7 @@ public class TestManager : MonoBehaviour
     
     public void CorrectAnswer()
     {
+        GameManager.CorrectAnswerPoints();
         GameObject.Find("Prefab_MSG_End").GetComponentInChildren<Text>().text = "Listo," +
             " muchas gracias! me ayudaste mucho!";
     }
