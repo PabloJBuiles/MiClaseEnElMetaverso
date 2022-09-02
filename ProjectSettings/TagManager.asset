@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Fluid
   - Glass
+  - Glass_2
+  - Glass_3
+  - Glass_4
   layers:
   - Default
   - TransparentFX
