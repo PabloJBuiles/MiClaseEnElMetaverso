@@ -8,6 +8,7 @@ public class Shop : MonoBehaviour
     [SerializeField]private GameObject[] Characters;
 
     private List<bool> itemsOwned = new List<bool>();
+    private List<bool> CharactersOwned = new List<bool>();
     private int idItemToBuy;
     // Start is called before the first frame update
     void Start()
@@ -15,6 +16,10 @@ public class Shop : MonoBehaviour
         for (int i = 0; i < items.Length; i++)
         {
             itemsOwned.Add(false);
+        }
+        for (int i = 0; i < Characters.Length; i++)
+        {
+            CharactersOwned.Add(false);
         }
     }
 
@@ -37,4 +42,18 @@ public class Shop : MonoBehaviour
         }
     }
     
+    
+    public void BuySkin(int itemPrice)
+    {
+        if (GameManager.BuyItem(itemPrice))
+        {
+            Characters[idItemToBuy].SetActive(true);
+            CharactersOwned[idItemToBuy] = true;
+            //TODO efectos visuales cuando aparese el item
+        }
+        else
+        {
+            //TODO dar feedback de que no hay plata
+        }
+    }
 }
