@@ -9,6 +9,8 @@ TagManager:
   - Glass_2
   - Glass_3
   - Glass_4
+  - piso
+  - Piso
   layers:
   - Default
   - TransparentFX
