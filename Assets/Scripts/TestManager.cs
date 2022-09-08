@@ -63,6 +63,9 @@ public class TestManager : MonoBehaviour
         Text pregunta = GameObject.Find("Text_Pregunta").GetComponent<Text>();
         pregunta.text = _questions[numeroPregunta].Preguntas;
         ChangeAnswerValues(numeroPregunta);
+        Canvas.ForceUpdateCanvases();
+        pregunta.gameObject.SetActive(false);
+        pregunta.gameObject.SetActive(true);
 
     }
     public void ChangeAnswerValues(int question)
@@ -131,6 +134,8 @@ public class TestManager : MonoBehaviour
             antibucle++;
         }
          print(preguntasUsadas.Length);
+         Canvas.ForceUpdateCanvases();
+
 
     }
 

@@ -7,6 +7,7 @@ TagManager:
   - UpBasket
   - DownBasket
   - Ground
+  - Tablet
   layers:
   - Default
   - TransparentFX
